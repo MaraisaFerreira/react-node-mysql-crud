@@ -5,10 +5,13 @@ export default function () {
 	const [game, setGame] = useState({});
 
 	const handleNewGame = (ev) => {
-		setGame((prev) => ({
-			...prev,
+		setGame((prevState) => ({
+			...prevState,
 			[ev.target.name]: ev.target.value,
 		}));
+	};
+
+	const handleRegister = () => {
 		console.log(game);
 	};
 
@@ -40,7 +43,9 @@ export default function () {
 				placeholder='Categoria...'
 				onChange={handleNewGame}
 			/>
-			<button className='btn-register'>Cadastrar</button>
+			<button className='btn-register' onClick={handleRegister}>
+				Cadastrar
+			</button>
 		</div>
 	);
 }

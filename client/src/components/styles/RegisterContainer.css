@@ -1,6 +1,5 @@
 .Register-container {
 	width: 350px;
-	height: 350px;
 	padding: 10px 20px;
 
 	display: flex;
@@ -34,7 +33,7 @@
 .Register-container .btn-register {
 	width: 100%;
 	padding: 10px;
-	margin-top: 20px;
+	margin: 20px 0 10px 0;
 
 	background: #1f71cf;
 	border-radius: 5px;

@@ -61,17 +61,17 @@
 	border-radius: 5px;
 	border: 1px solid #646464;
 }
+
 .Register-container .radio-container legend {
 	font-size: 0.8rem;
 	color: #646464;
 }
 
 .Register-container .radio-container input[type='radio'] {
-	visibility: none;
+	opacity: 0;
 
 	padding: 0;
 	margin: 0;
-	border: none;
 	width: 0;
 	height: 0;
 }

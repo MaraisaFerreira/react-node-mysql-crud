@@ -3,7 +3,7 @@ import './styles/RegisterContainer.css';
 export default function () {
 	return (
 		<div className='Register-container'>
-			<h2>Cadastro</h2>
+			<h2>Nostalgic Games</h2>
 
 			<input type='text' name='title' placeholder='Game...' />
 			<input type='text' name='year' placeholder='Ano...' />

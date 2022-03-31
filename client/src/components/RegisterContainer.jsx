@@ -56,7 +56,7 @@ export default function () {
 				onChange={handleNewGame}
 			/>
 			<input
-				type='text'
+				type='number'
 				name='year'
 				placeholder='Release Year'
 				onChange={handleNewGame}

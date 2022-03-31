@@ -24,10 +24,24 @@ app.post('/register', (req, res) => {
 	const { category } = req.body;
 	const { rating } = req.body;
 
-	let sql = `INSERT INTO games (title, year, trademark, category, rating) VALUES (?,?,?,?,?)`;
+	const sql = `INSERT INTO games (title, year, trademark, category, rating) VALUES (?,?,?,?,?)`;
 
 	db.query(sql, [title, year, trademark, category, rating], (err, resp) => {
 		console.log(err);
+	});
+});
+
+app.get('/getAllGames', (req, resp) => {
+	const sql = 'SELECT * FROM games';
+
+	db.query(sql, (err, result) => {
+		if (err) {
+			console.log(err);
+			resp.status(500);
+		} else {
+			console.log(result);
+			resp.send(result);
+		}
 	});
 });
 

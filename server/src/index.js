@@ -39,7 +39,6 @@ app.get('/getAllGames', (req, resp) => {
 			console.log(err);
 			resp.status(500);
 		} else {
-			console.log(result);
 			resp.send(result);
 		}
 	});

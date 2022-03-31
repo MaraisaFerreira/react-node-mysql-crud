@@ -17,7 +17,6 @@ export default function () {
 	};
 
 	const handleRating = (value) => {
-		console.log(value);
 		setGame((prevState) => ({
 			...prevState,
 			rating: value,
@@ -25,15 +24,14 @@ export default function () {
 	};
 
 	const handleRegister = () => {
-		console.log(game);
 		if (!game.gameTitle || !game.year || !game.tradeMark) {
 			alert('Name, Year and Trademark must be filled!');
 			return;
 		}
 
-		const url = '';
+		const url = 'http://localhost:3001/register';
 		axios
-			.post('http://localhost:3001/register', {
+			.post(url, {
 				title: game.gameTitle,
 				year: game.year,
 				trademark: game.tradeMark,
@@ -41,7 +39,10 @@ export default function () {
 				rating: game.rating,
 			})
 			.then((resp) => {
-				console.log(resp);
+				alert('Success');
+			})
+			.catch((err) => {
+				alert('Sorry fail...');
 			});
 	};
 

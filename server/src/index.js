@@ -23,6 +23,12 @@ app.post('/register', (req, res) => {
 	const { trademark } = req.body;
 	const { category } = req.body;
 	const { rating } = req.body;
+
+	let sql = `INSERT INTO games (title, year, trademark, category, rating) VALUES (?,?,?,?,?)`;
+
+	db.query(sql, [title, year, trademark, category, rating], (err, resp) => {
+		console.log(err);
+	});
 });
 
 app.listen(PORT, () => {

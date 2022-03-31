@@ -4,6 +4,8 @@ import './styles/RegisterContainer.css';
 import uncheckedURL from '../assets/star-unchecked.svg';
 import checkedURL from '../assets/star-checked.svg';
 
+import axios from 'axios';
+
 export default function () {
 	const [game, setGame] = useState({ rating: 1 });
 
@@ -24,6 +26,23 @@ export default function () {
 
 	const handleRegister = () => {
 		console.log(game);
+		if (!game.gameTitle || !game.year || !game.tradeMark) {
+			alert('Name, Year and Trademark must be filled!');
+			return;
+		}
+
+		const url = '';
+		axios
+			.post('http://localhost:3001/register', {
+				title: game.gameTitle,
+				year: game.year,
+				trademark: game.tradeMark,
+				category: game.category || 'Undefined',
+				rating: game.rating,
+			})
+			.then((resp) => {
+				console.log(resp);
+			});
 	};
 
 	return (
@@ -33,30 +52,30 @@ export default function () {
 			<input
 				type='text'
 				name='gameTitle'
-				placeholder='Game...'
+				placeholder='Game Title'
 				onChange={handleNewGame}
 			/>
 			<input
 				type='text'
 				name='year'
-				placeholder='Ano...'
+				placeholder='Release Year'
 				onChange={handleNewGame}
 			/>
 			<input
 				type='text'
 				name='tradeMark'
-				placeholder='Marca...'
+				placeholder='Trademark'
 				onChange={handleNewGame}
 			/>
 			<input
 				type='text'
 				name='category'
-				placeholder='Categoria...'
+				placeholder='Category'
 				onChange={handleNewGame}
 			/>
 
 			<fieldset className='radio-container'>
-				<legend> &nbsp; Classificação: &nbsp; </legend>
+				<legend> &nbsp; Rating: &nbsp; </legend>
 
 				<input
 					type='radio'
@@ -66,11 +85,7 @@ export default function () {
 					onChange={(e) => handleRating(1)}
 				/>
 				<label htmlFor='r1'>
-					{game.rating === 1 ? (
-						<img src={checkedURL} alt='1' />
-					) : (
-						<img src={uncheckedURL} alt='1' />
-					)}
+					<img src={checkedURL} alt='1' />
 				</label>
 				<input
 					type='radio'
@@ -80,7 +95,10 @@ export default function () {
 					onChange={(e) => handleRating(2)}
 				/>
 				<label htmlFor='r2'>
-					{game.rating === 2 ? (
+					{game.rating === 2 ||
+					game.rating === 3 ||
+					game.rating === 4 ||
+					game.rating === 5 ? (
 						<img src={checkedURL} alt='2' />
 					) : (
 						<img src={uncheckedURL} alt='2' />
@@ -94,7 +112,7 @@ export default function () {
 					onChange={(e) => handleRating(3)}
 				/>
 				<label htmlFor='r3'>
-					{game.rating === 3 ? (
+					{game.rating === 3 || game.rating === 4 || game.rating === 5 ? (
 						<img src={checkedURL} alt='3' />
 					) : (
 						<img src={uncheckedURL} alt='3' />
@@ -108,7 +126,7 @@ export default function () {
 					onChange={(e) => handleRating(4)}
 				/>
 				<label htmlFor='r4'>
-					{game.rating === 4 ? (
+					{game.rating === 4 || game.rating === 5 ? (
 						<img src={checkedURL} alt='4' />
 					) : (
 						<img src={uncheckedURL} alt='4' />
@@ -131,7 +149,7 @@ export default function () {
 			</fieldset>
 
 			<button className='btn-register' onClick={handleRegister}>
-				Cadastrar
+				Add
 			</button>
 		</div>
 	);

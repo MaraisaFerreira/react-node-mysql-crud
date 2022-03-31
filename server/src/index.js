@@ -17,9 +17,12 @@ const db = mysql.createPool({
 	database: process.env.DATABASE,
 });
 
-app.get('/', (req, res) => {
-
-	res.status(200);
+app.post('/register', (req, res) => {
+	const { title } = req.body;
+	const { year } = req.body;
+	const { trademark } = req.body;
+	const { category } = req.body;
+	const { rating } = req.body;
 });
 
 app.listen(PORT, () => {

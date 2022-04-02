@@ -1,8 +1,8 @@
-import './styles/GameListContainer.css';
+import './styles/GameContainer.css';
 
-import { FaTrash, FaPen } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import CardGame from './CardGame';
 
 export default function () {
 	const [listGame, setListGame] = useState([]);
@@ -18,7 +18,22 @@ export default function () {
 	return (
 		<main className='game-container'>
 			<h2>Available Games</h2>
-			<table className='list'>
+
+			<div className='cards-container'>
+				{listGame.map((item) => {
+					return (
+						<CardGame
+							title={item.title}
+							year={item.year}
+							trademark={item.trademark}
+							category={item.category}
+							rating={item.rating}
+						/>
+					);
+				})}
+			</div>
+
+			{/* <table className='list'>
 				<thead>
 					<tr>
 						<th>Title</th>
@@ -46,7 +61,7 @@ export default function () {
 						);
 					})}
 				</tbody>
-			</table>
+			</table> */}
 		</main>
 	);
 }

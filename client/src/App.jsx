@@ -1,12 +1,12 @@
 import './App.css';
-import GamesListContainer from './components/GamesListContainer';
+import GamesContainer from './components/GamesContainer';
 import RegisterContainer from './components/RegisterContainer';
 
 function App() {
 	return (
 		<div className='App-container'>
 			<RegisterContainer />
-			<GamesListContainer />
+			<GamesContainer />
 		</div>
 	);
 }

@@ -21,6 +21,18 @@
 	font-size: 2.5rem;
 }
 
+.game-container .cards-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+
+	overflow: auto;
+}
+
+.game-container .cards-container::-webkit-scrollbar {
+	width: 0px;
+}
+
 table,
 th,
 td {
@@ -46,7 +58,7 @@ td {
 	font-size: 1.1rem;
 }
 
-.game-container .icons:hover {
+/* .game-container .icons:hover {
 	cursor: pointer;
 
 	transform: scale(1.3);
@@ -60,4 +72,4 @@ td {
 
 .game-container .trash {
 	color: rgba(241, 22, 22, 0.781);
-}
+} */

@@ -1,4 +1,4 @@
-.card-game {
+.game-container .card-game {
 	padding: 15px;
 
 	display: flex;
@@ -8,6 +8,10 @@
 	border: 1px solid #c0c0c0;
 	border-radius: 5px;
 	box-shadow: 2px 2px 8px #0006;
+}
+
+.game-container .card-game:hover {
+	box-shadow: 3px 3px 8px #0009;
 }
 
 .game-container .card-game h3 {

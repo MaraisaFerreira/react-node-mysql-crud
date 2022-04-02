@@ -1,0 +1,63 @@
+.game-container {
+	height: 100%;
+	margin-left: 20px;
+	padding: 10px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	flex: 1;
+	border: 2px solid #333333;
+	background: linear-gradient(to right, #d3cce3, #e9e4f0);
+	border-radius: 5px;
+	box-shadow: 2px 2px 8px #0008;
+}
+
+.game-container h2 {
+	padding: 10px;
+
+	font-family: 'Hurricane', cursive;
+	font-size: 2.5rem;
+}
+
+table,
+th,
+td {
+	border-collapse: collapse;
+}
+
+th,
+td {
+	padding: 10px 5px;
+
+	border-bottom: 1px solid #c0c0c0;
+
+	text-align: center;
+}
+
+.game-container .list {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.list th {
+	/* font-family: 'Hurricane', cursive; */
+	font-size: 1.1rem;
+}
+
+.game-container .icons:hover {
+	cursor: pointer;
+
+	transform: scale(1.3);
+}
+
+.game-container .pen {
+	margin-right: 10px;
+
+	color: #1f71cf;
+}
+
+.game-container .trash {
+	color: rgba(241, 22, 22, 0.781);
+}

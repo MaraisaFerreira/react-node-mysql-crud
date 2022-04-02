@@ -30,20 +30,13 @@ export default function () {
 		}
 
 		const url = 'http://localhost:3001/register';
-		axios
-			.post(url, {
-				title: game.gameTitle,
-				year: game.year,
-				trademark: game.tradeMark,
-				category: game.category || 'Undefined',
-				rating: game.rating,
-			})
-			.then((resp) => {
-				alert('Success');
-			})
-			.catch((err) => {
-				alert('Sorry fail...');
-			});
+		axios.post(url, {
+			title: game.gameTitle,
+			year: game.year,
+			trademark: game.tradeMark,
+			category: game.category || 'Undefined',
+			rating: game.rating,
+		});
 	};
 
 	return (

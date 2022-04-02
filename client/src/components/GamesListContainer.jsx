@@ -1,10 +1,20 @@
 import './styles/GameListContainer.css';
 
 import { FaTrash, FaPen } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function () {
-	useEffect(effect);
+	const [listGame, setListGame] = useState([]);
+
+	useEffect(() => {
+		const url = 'http://localhost:3001/getAllGames';
+
+		axios.get(url).then((resp) => {
+			setListGame(resp.data);
+		});
+	}, []);
+
 	return (
 		<main className='game-container'>
 			<h2>Available Games</h2>
@@ -20,17 +30,21 @@ export default function () {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Super Mario World</td>
-						<td>1991</td>
-						<td>Super Nintendo</td>
-						<td>Arcade</td>
-						<td>5 stars</td>
-						<td>
-							<FaPen className='icons pen' />{' '}
-							<FaTrash className='icons trash' />
-						</td>
-					</tr>
+					{listGame.map((item) => {
+						return (
+							<tr key={item.id}>
+								<td>{item.title}</td>
+								<td>{item.year}</td>
+								<td>{item.trademark}</td>
+								<td>{item.category}</td>
+								<td>{item.rating} stars</td>
+								<td>
+									<FaPen className='icons pen' />{' '}
+									<FaTrash className='icons trash' />
+								</td>
+							</tr>
+						);
+					})}
 				</tbody>
 			</table>
 		</main>

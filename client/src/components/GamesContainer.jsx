@@ -3,9 +3,12 @@ import './styles/GameContainer.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CardGame from './CardGame';
+import Modal from './Modal';
 
 export default function () {
 	const [listGame, setListGame] = useState([]);
+	const [modalContent, setModalContent] = useState({});
+	const [modalVisibility, setModalVisibility] = useState(false);
 
 	useEffect(() => {
 		const url = 'http://localhost:3001/getAllGames';
@@ -14,6 +17,18 @@ export default function () {
 			setListGame(resp.data);
 		});
 	}, []);
+
+	const handleClick = (id, title, year, trademark, category, rating) => {
+		setModalContent({
+			id,
+			title,
+			year,
+			trademark,
+			category,
+			rating,
+		});
+		setModalVisibility(true);
+	};
 
 	return (
 		<main className='game-container'>
@@ -30,10 +45,23 @@ export default function () {
 							trademark={item.trademark}
 							category={item.category}
 							rating={item.rating}
+							click={handleClick}
 						/>
 					);
 				})}
 			</div>
+
+			{modalVisibility && (
+				<Modal
+					id={modalContent.id}
+					title={modalContent.title}
+					year={modalContent.year}
+					trademark={modalContent.trademark}
+					category={modalContent.category}
+					rating={modalContent.rating}
+					alterVisibility={setModalVisibility}
+				/>
+			)}
 		</main>
 	);
 }

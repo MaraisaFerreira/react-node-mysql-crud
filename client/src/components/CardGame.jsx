@@ -1,16 +1,19 @@
 import './styles/CardGame.css';
 
-export default function ({ id, title, year, trademark, category, rating }) {
-	const handleEdit = (v) => {
-		console.log('Edit', v);
-	};
-
-	const handleDelete = (v) => {
-		console.log('Delete', v);
-	};
-
+export default function ({
+	id,
+	title,
+	year,
+	trademark,
+	category,
+	rating,
+	click,
+}) {
 	return (
-		<div className='card-game'>
+		<div
+			className='card-game'
+			onClick={(e) => click(id, title, year, trademark, category, rating)}
+		>
 			<h3>{title}</h3>
 			<p>
 				<span>Release Year:</span> {year}

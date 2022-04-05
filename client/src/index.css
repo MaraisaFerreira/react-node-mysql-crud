@@ -11,3 +11,63 @@
 body {
 	font-family: 'Montserrat', sans-serif;
 }
+
+input {
+	width: 100%;
+	margin: 5px;
+	padding: 5px;
+
+	background: transparent;
+	border: 1px solid #c0c0c0;
+	border-radius: 5px;
+	box-shadow: 1px 1px 5px #0005;
+}
+
+fieldset.radio-container {
+	padding: 10px;
+	margin: 5px;
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 5px;
+	border: 1px solid #646464;
+}
+
+fieldset.radio-container legend {
+	font-size: 0.8rem;
+	color: #646464;
+}
+
+fieldset.radio-container input[type='radio'] {
+	opacity: 0;
+
+	padding: 0;
+	margin: 0;
+	width: 0;
+	height: 0;
+}
+
+fieldset.radio-container img {
+	width: 20px;
+	margin: 0 15px;
+
+	transition: transform 0.5s;
+}
+
+fieldset.radio-container img:hover {
+	transform: scale(1.3);
+	cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type='number'] {
+	-moz-appearance: textfield;
+}

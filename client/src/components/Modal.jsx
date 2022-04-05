@@ -1,8 +1,12 @@
 import './styles/Modal.css';
 
 import { FaPen, FaTrash } from 'react-icons/fa';
+import { GrClose } from 'react-icons/gr';
+
+import axios from 'axios';
 
 export default function ({
+	id,
 	title,
 	year,
 	trademark,
@@ -15,9 +19,14 @@ export default function ({
 		console.log('Edit');
 	};
 
-	const handleDelete = () => {
+	const handleDelete = (id) => {
 		alterVisibility(false);
-		console.log('Delete');
+		console.log(`http://localhost:3001/remove-game/${id}`);
+		axios.delete(`http://localhost:3001/remove-game/${id}`);
+	};
+
+	const handleClose = () => {
+		alterVisibility(false);
 	};
 
 	return (
@@ -38,7 +47,8 @@ export default function ({
 				</p>
 				<div className='opt-container'>
 					<FaPen className='opt pen' onClick={handleEdit} />
-					<FaTrash className='opt trash' onClick={handleDelete} />
+					<FaTrash className='opt trash' onClick={(e) => handleDelete(id)} />
+					<GrClose className='opt close' onClick={handleClose} />
 				</div>
 			</div>
 		</div>

@@ -41,6 +41,7 @@
 
 .modal-container .modal-content p span {
 	font-weight: 600;
+	color: #363636;
 }
 
 .modal-container .modal-content .opt-container {
@@ -62,4 +63,9 @@
 
 .modal-container .modal-content .opt-container .trash {
 	color: #f1290eb5;
+	margin-right: 10px;
+}
+
+.modal-container .modal-content .opt-container .close {
+	color: #363636;
 }

@@ -31,6 +31,28 @@ app.post('/register', (req, res) => {
 	});
 });
 
+app.post('/update', (req, res) => {
+	const { id } = req.body;
+	const { title } = req.body;
+	const { year } = req.body;
+	const { trademark } = req.body;
+	const { category } = req.body;
+	const { rating } = req.body;
+
+	const sql =
+		'UPDATE games SET title = ?, year = ?, trademark = ?, category = ?, rating = ? WHERE idgames = ?';
+
+	db.query(
+		sql,
+		[title, year, trademark, category, rating, id],
+		(err, result) => {
+			if (err) {
+				console.log(err);
+			}
+		}
+	);
+});
+
 app.get('/getAllGames', (req, resp) => {
 	const sql = 'SELECT * FROM games';
 

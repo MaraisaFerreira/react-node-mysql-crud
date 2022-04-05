@@ -44,6 +44,19 @@ app.get('/getAllGames', (req, resp) => {
 	});
 });
 
+app.delete('/remove-game/:id', (req, res) => {
+	const id = req.params.id;
+	const sql = 'DELETE FROM games WHERE idgames = ?';
+
+	db.query(sql, [id], (err, result) => {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log('Success');
+		}
+	});
+});
+
 app.listen(PORT, () => {
 	console.log(`Server running on port: ${PORT}`);
 });

@@ -1,4 +1,5 @@
-.modal-container {
+.modal-container,
+.edit-page {
 	width: 100%;
 	height: 100%;
 
@@ -13,7 +14,8 @@
 	align-items: center;
 }
 
-.modal-container .modal-content {
+.modal-container .modal-content,
+.edit-page .edit-container {
 	padding: 30px;
 
 	display: flex;
@@ -26,13 +28,23 @@
 	box-shadow: 2px 2px 8px #0008;
 }
 
-.modal-container .modal-content h3 {
+.edit-page .edit-container {
+	width: 350px;
+	padding: 10px 20px;
+}
+
+.modal-container .modal-content h3,
+.edit-page .edit-container h3 {
 	padding-bottom: 10px;
 
 	font-family: 'Hurricane', cursive;
 	font-size: 2.5rem;
 	text-align: center;
 	color: #1f71cf;
+}
+
+.edit-page .edit-container h3 {
+	color: #363636;
 }
 
 .modal-container .modal-content p {
@@ -68,4 +80,30 @@
 
 .modal-container .modal-content .opt-container .close {
 	color: #363636;
+}
+
+.edit-page .edit-container .btn-edit {
+	width: 100%;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.edit-page .edit-container .btn-edit button {
+	width: 48%;
+	padding: 10px;
+	margin: 20px 0 10px 0;
+
+	background: #1f71cf;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 1px 1px 5px #0005;
+
+	color: #fff;
+	font-size: 1.2rem;
+}
+
+.edit-page .edit-container .btn-edit button:hover {
+	background: #1765bd;
+	box-shadow: 1px 1px 5px #0008;
 }

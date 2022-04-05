@@ -19,17 +19,6 @@
 	font-size: 2.5rem;
 }
 
-.Register-container input {
-	width: 100%;
-	margin: 5px 20px;
-	padding: 5px;
-
-	background: transparent;
-	border: 1px solid #c0c0c0;
-	border-radius: 5px;
-	box-shadow: 1px 1px 5px #0005;
-}
-
 .Register-container .btn-register {
 	width: 100%;
 	padding: 10px;
@@ -47,53 +36,4 @@
 .Register-container .btn-register:hover {
 	background: #1765bd;
 	box-shadow: 1px 1px 5px #0008;
-}
-
-.Register-container .radio-container {
-	padding: 10px;
-	margin: 5px 20px;
-	width: 100%;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	border-radius: 5px;
-	border: 1px solid #646464;
-}
-
-.Register-container .radio-container legend {
-	font-size: 0.8rem;
-	color: #646464;
-}
-
-.Register-container .radio-container input[type='radio'] {
-	opacity: 0;
-
-	padding: 0;
-	margin: 0;
-	width: 0;
-	height: 0;
-}
-
-.Register-container .radio-container img {
-	width: 20px;
-	margin: 0 15px;
-
-	transition: transform 0.5s;
-}
-
-.Register-container .radio-container img:hover {
-	transform: scale(1.3);
-	cursor: pointer;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-input[type='number'] {
-	-moz-appearance: textfield;
 }

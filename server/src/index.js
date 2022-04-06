@@ -7,6 +7,7 @@ const mysql = require('mysql');
 const PORT = 3001;
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
@@ -80,5 +81,5 @@ app.delete('/remove-game/:id', (req, res) => {
 });
 
 app.listen(PORT, () => {
-	console.log(`Server running on port: ${PORT}`);
+	console.log(`Server running on port: ${PORT}...`);
 });

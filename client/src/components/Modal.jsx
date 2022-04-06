@@ -33,7 +33,6 @@ export default function ({
 
 	const handleEdit = () => {
 		setDialogVisibility(true);
-		console.log('Edit');
 	};
 
 	const handleDelete = (id) => {
@@ -51,7 +50,6 @@ export default function ({
 			...prevState,
 			[ev.target.name]: ev.target.value,
 		}));
-		console.log(edt);
 	};
 
 	const handleRating = (value) => {
@@ -78,6 +76,8 @@ export default function ({
 			category: edt.editCategory || 'Undefined',
 			rating: edt.editRating,
 		});
+
+		setDialogVisibility(false);
 	};
 
 	return (

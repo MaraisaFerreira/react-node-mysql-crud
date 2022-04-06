@@ -1,52 +1,24 @@
-import { useState } from 'react';
 import './styles/RegisterContainer.css';
 
 import uncheckedURL from '../assets/star-unchecked.svg';
 import checkedURL from '../assets/star-checked.svg';
 
-import axios from 'axios';
-
-export default function () {
-	const [game, setGame] = useState({ rating: 1 });
-
-	const handleNewGame = (ev) => {
-		setGame((prevState) => ({
-			...prevState,
-			[ev.target.name]: ev.target.value,
-		}));
-	};
-
-	const handleRating = (value) => {
-		setGame((prevState) => ({
-			...prevState,
-			rating: value,
-		}));
-	};
-
-	const handleRegister = () => {
-		if (!game.gameTitle || !game.year || !game.tradeMark) {
-			alert('Name, Year and Trademark must be filled!');
-			return;
-		}
-
-		const url = 'http://localhost:3001/register';
-		axios.post(url, {
-			title: game.gameTitle,
-			year: game.year,
-			trademark: game.tradeMark,
-			category: game.category || 'Undefined',
-			rating: game.rating,
-		});
-	};
-
+export default function ({
+	handleNewGame,
+	handleRating,
+	handleRegister,
+	game,
+}) {
 	return (
 		<div className='Register-container'>
 			<h2>Nostalgic Games</h2>
 
 			<input
+				id='inp-title'
 				type='text'
 				name='gameTitle'
 				placeholder='Game Title'
+				value={game.gameTitle}
 				onChange={handleNewGame}
 			/>
 			<input
@@ -142,8 +114,8 @@ export default function () {
 				</label>
 			</fieldset>
 
-			<button className='btn-register' onClick={handleRegister}>
-				Add
+			<button className='btn-register' onClick={(e) => handleRegister()}>
+				Add Game
 			</button>
 		</div>
 	);

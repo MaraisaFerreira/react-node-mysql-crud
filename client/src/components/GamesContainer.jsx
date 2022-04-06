@@ -1,4 +1,4 @@
-import './styles/GameContainer.css';
+import './styles/GamesContainer.css';
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -7,7 +7,7 @@ import Modal from './Modal';
 
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 
-export default function () {
+export default function ({ game }) {
 	const [listGame, setListGame] = useState([]);
 	const [modalContent, setModalContent] = useState({});
 	const [modalVisibility, setModalVisibility] = useState(false);
@@ -18,7 +18,17 @@ export default function () {
 		axios.get(url).then((resp) => {
 			setListGame(resp.data);
 		});
+		console.log('useEffect');
 	}, []);
+
+	useEffect(() => {
+		const url = 'http://localhost:3001/getAllGames';
+
+		axios.get(url).then((resp) => {
+			setListGame(resp.data);
+		});
+		console.log('useEffect');
+	}, [game]);
 
 	const handleClick = (id, title, year, trademark, category, rating) => {
 		setModalContent({

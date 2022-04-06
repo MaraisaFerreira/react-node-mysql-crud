@@ -14,6 +14,22 @@
 	box-shadow: 2px 2px 8px #0008;
 }
 
+.game-container .no-games {
+	text-align: center;
+
+	color: #969696;
+}
+
+.game-container .no-games h4,
+.game-container .no-games h3 {
+	margin: 15px 0;
+}
+
+.game-container .no-games .left-arrow {
+	color: #1f71cf80;
+	font-size: 2.5rem;
+}
+
 .game-container h2 {
 	padding: 10px;
 

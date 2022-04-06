@@ -5,6 +5,8 @@ import axios from 'axios';
 import CardGame from './CardGame';
 import Modal from './Modal';
 
+import { HiArrowNarrowLeft } from 'react-icons/hi';
+
 export default function () {
 	const [listGame, setListGame] = useState([]);
 	const [modalContent, setModalContent] = useState({});
@@ -34,6 +36,13 @@ export default function () {
 		<main className='game-container'>
 			<h2>Available Games</h2>
 
+			{listGame.length < 1 && (
+				<div className='no-games'>
+					<h4>Sorry! Has no games on your database yet.</h4>
+					<h5>Register one at side</h5>
+					<HiArrowNarrowLeft className='left-arrow' />
+				</div>
+			)}
 			<div className='cards-container'>
 				{listGame.map((item) => {
 					return (

@@ -55,7 +55,7 @@ app.post('/update', (req, res) => {
 });
 
 app.get('/getAllGames', (req, resp) => {
-	const sql = 'SELECT * FROM games';
+	const sql = 'SELECT * FROM games ORDER BY idgames DESC';
 
 	db.query(sql, (err, result) => {
 		if (err) {

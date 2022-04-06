@@ -3,6 +3,7 @@
       <img src="./extras-assets/logo.png" alt="Logo">
   <br>
 </p>
+<br>
 
 <div align="center">
 <img src="./extras-assets/screenshot.gif" align="center">
